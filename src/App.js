@@ -1,10 +1,9 @@
 import "./App.css";
+import ListadoEmpleados from "./empleados/ListadoEmpleados";
 
 function App() {
   return (
-    <div className="container text-center">
-      <h1>Sistema de recursos humanos</h1>
-    </div>
+    <ListadoEmpleados />
   );
 }
 
