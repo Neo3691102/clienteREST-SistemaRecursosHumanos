@@ -1,9 +1,15 @@
 import "./App.css";
 import ListadoEmpleados from "./empleados/ListadoEmpleados";
+import Navegacion from "./plantilla/navegacion";
 
 function App() {
   return (
-    <ListadoEmpleados />
+    <div className="container">
+      <Navegacion />
+      <ListadoEmpleados />
+    </div>
+    
+    
   );
 }
 
