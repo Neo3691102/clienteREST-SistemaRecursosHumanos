@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 export default function navegacion() {
   return (
@@ -11,10 +12,10 @@ export default function navegacion() {
     </button>
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
-        <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/agregar">Agregar empleado</a>
-        </li>
         
+        <li className="nav-item">
+          <Link className="nav-link" to="/agregar">Agregar empleado</Link>
+        </li>
       </ul>
     </div>
   </div>
