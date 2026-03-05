@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-export default function agregarempleado() {
+export default function AgregarEmpleado() {
+
+  const [empleado, setEmpleado] =useState({
+      nombre: "",
+      departamento: "",
+      sueldo: ""
+    })
+
+    const {nombre, departamento, sueldo} = empleado;
+
   return (
+
     <div className="container">
 
       <div className="container text-center" style={{ margin: "30px" }}>
