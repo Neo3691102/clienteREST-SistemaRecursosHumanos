@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
+import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 export default function AgregarEmpleado() {
+
+  let navegacion = useNavigate();
 
   const [empleado, setEmpleado] =useState({
       nombre: "",
@@ -10,6 +14,20 @@ export default function AgregarEmpleado() {
 
     const {nombre, departamento, sueldo} = empleado;
 
+    const OnInputChange = (e) => {
+      //spread operator
+      setEmpleado({...empleado, [e.target.name]: e.target.value})
+    
+    }
+
+    const onSubmit = async (e) => {
+      e.preventDefault();
+      const urlBase = "http://localhost:8080/rh-app/empleados";
+      await axios.post(urlBase, empleado);
+      //redirigimos a la pagina de inicio
+      navegacion('/');
+    }
+
   return (
 
     <div className="container">
@@ -18,7 +36,7 @@ export default function AgregarEmpleado() {
         <h3>Agregar empleado</h3>
       </div>  
 
-      <htmlForm>
+      <htmlForm onSubmit={(e) => onSubmit(e)}>
         <div className="mb-3">
           <label htmlFor="nombre" className="form-label">
             Nombre
@@ -26,7 +44,7 @@ export default function AgregarEmpleado() {
           <input
             type="text"
             className="form-control"
-            id="nombre" name="nombre" required={true}
+            id="nombre" name="nombre" required={true} value={nombre} onChange={(e) =>OnInputChange(e)}
           />
           
         </div>
@@ -37,7 +55,7 @@ export default function AgregarEmpleado() {
           <input
             type="text"
             className="form-control"
-            id="departamento" name="departamento"
+            id="departamento" name="departamento" value={departamento} onChange={(e) =>OnInputChange(e)}
           />
         </div>
 
@@ -48,7 +66,7 @@ export default function AgregarEmpleado() {
           <input
             type="number" step="any"
             className="form-control"
-            id="sueldo" name="sueldo"
+            id="sueldo" name="sueldo" value={sueldo} onChange={(e) =>OnInputChange(e)}
           />
         </div>
 
