@@ -34,7 +34,7 @@ export default function EditarEmpleado() {
   const onSubmit = async (e) => {
     e.preventDefault();
     const urlBase = "http://localhost:8080/rh-app/empleados";
-    await axios.post(urlBase, empleado);
+    await axios.put(`${urlBase}/${empleado.id}`, empleado);
     //redirigimos a la pagina de inicio
     navegacion("/");
   };
