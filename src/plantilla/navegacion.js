@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 
 export default function navegacion() {
   return (
-    <div className='container'>
+    <div className='container-fluid'>
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
   <div className="container-fluid">
     <a className="navbar-brand" href="/">Sistema de recursos humanos</a>
